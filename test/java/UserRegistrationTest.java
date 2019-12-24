@@ -128,4 +128,18 @@ public class UserRegistrationTest {
         Assert.assertEquals("Invalid",number_format);
 
     }
+
+    @Test
+    public void validatePswd_IfEightCharOrMore_ReturnValid() {
+        UserRegistration password = new UserRegistration();
+        String pswd = password.validatingPassword("NISHA123");
+        Assert.assertEquals("Valid",pswd);
+    }
+
+    @Test
+    public void ValidatePswd_IfLessThanEightChar_ReturnInvalid() {
+        UserRegistration password = new UserRegistration();
+        String pswd = password.validatingPassword("Nisha");
+        Assert.assertEquals("Invalid",pswd);
+    }
 }

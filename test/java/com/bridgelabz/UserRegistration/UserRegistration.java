@@ -28,4 +28,12 @@ public class UserRegistration {
         else
             return "Invalid";
     }
+
+    public String validatingPassword(String pswd) {
+    if(pswd.matches("^[a-bA-Z0-9]{8,}"))
+        return  "Valid";
+    else
+        return "Invalid";
+
+    }
 }

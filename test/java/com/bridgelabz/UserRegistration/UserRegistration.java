@@ -30,7 +30,7 @@ public class UserRegistration {
     }
 
     public String validatingPassword(String pswd) {
-    if(pswd.matches("^(?=.*[A-Z]{1})[a-zA-Z0-9]{8,}$"))
+    if(pswd.matches("^(?=.*[A-Z]{1})(?=.*[0-9]{1})[a-zA-Z0-9]{8,}$"))
         return  "Valid";
     else
         return "Invalid";

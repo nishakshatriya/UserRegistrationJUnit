@@ -132,7 +132,7 @@ public class UserRegistrationTest {
     @Test
     public void ValidatePswd_IfPredefinedFormat_ReturnValid() {
         UserRegistration password = new UserRegistration();
-        String pswd = password.validatingPassword("nishA123");
+        String pswd = password.validatingPassword("nishAaaa2");
         Assert.assertEquals("Valid",pswd);
     }
 // 8 CHARACTER PSWD
@@ -147,6 +147,14 @@ public class UserRegistrationTest {
     public void ValidatePswd_IfNoUpperCase_ReturnInvalid () {
         UserRegistration password = new UserRegistration();
         String pswd = password.validatingPassword("nishaaaaa");
+        Assert.assertEquals("Invalid",pswd);
+
+    }
+// ATLEAST 1 NUMERIC VALUE
+    @Test
+    public void ValidatePswd_IfNoNumericValue_ReturnInvalid() {
+        UserRegistration password = new UserRegistration();
+        String pswd = password.validatingPassword("nishaAak");
         Assert.assertEquals("Invalid",pswd);
 
     }

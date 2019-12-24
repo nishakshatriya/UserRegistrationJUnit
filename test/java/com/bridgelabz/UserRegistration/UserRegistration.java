@@ -21,4 +21,11 @@ public class UserRegistration {
         else
             return "Invalid";
     }
+
+    public String validatingMobileNumberFormat(String number_format) {
+        if(number_format.matches("^[+]?([0-9]{2})?[ ]?[0-9]{10}$"))
+            return "Valid";
+        else
+            return "Invalid";
+    }
 }

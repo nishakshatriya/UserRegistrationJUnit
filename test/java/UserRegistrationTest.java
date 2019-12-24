@@ -98,4 +98,34 @@ public class UserRegistrationTest {
         Assert.assertEquals("Invalid",id);
 
     }
+//MOBILE_NUMBER_FORMAT_VALIDATION
+    @Test
+    public void ValidateMobileNumberFormat_IfCountryCodePresent_ReturnValid() {
+        UserRegistration mobile_number = new UserRegistration();
+        String number_format = mobile_number.validatingMobileNumberFormat("+91 9922123456");
+        Assert.assertEquals("Valid",number_format);
+    }
+
+    @Test
+    public void ValidateMobileNumberFormat_IfSpacesPresent_ReturnValid() {
+        UserRegistration mobile_number = new UserRegistration();
+        String number_format = mobile_number.validatingMobileNumberFormat("91 9922123456");
+        Assert.assertEquals("Valid",number_format);
+    }
+
+    @Test
+    public void ValidateMobileNumberFormat_IfNoCountryCodeAndSpacePresent_ReturnValid() {
+        UserRegistration mobile_number = new UserRegistration();
+        String number_format = mobile_number.validatingMobileNumberFormat("9922123456");
+        Assert.assertEquals("Valid",number_format);
+
+    }
+
+    @Test
+    public void ValidateMobileNumber_IfNoPredefinedFormat_ReturnInvalid() {
+        UserRegistration mobile_number = new UserRegistration();
+        String number_format = mobile_number.validatingMobileNumberFormat("91 12345");
+        Assert.assertEquals("Invalid",number_format);
+
+    }
 }

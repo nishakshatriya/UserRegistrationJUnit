@@ -128,18 +128,26 @@ public class UserRegistrationTest {
         Assert.assertEquals("Invalid",number_format);
 
     }
-
+//  PASSWORD VALIDATION
     @Test
-    public void validatePswd_IfEightCharOrMore_ReturnValid() {
+    public void ValidatePswd_IfPredefinedFormat_ReturnValid() {
         UserRegistration password = new UserRegistration();
-        String pswd = password.validatingPassword("NISHA123");
+        String pswd = password.validatingPassword("nishA123");
         Assert.assertEquals("Valid",pswd);
     }
-
+// 8 CHARACTER PSWD
     @Test
     public void ValidatePswd_IfLessThanEightChar_ReturnInvalid() {
         UserRegistration password = new UserRegistration();
         String pswd = password.validatingPassword("Nisha");
         Assert.assertEquals("Invalid",pswd);
+    }
+// ATLEAST 1 UPPERCASE
+    @Test
+    public void ValidatePswd_IfNoUpperCase_ReturnInvalid () {
+        UserRegistration password = new UserRegistration();
+        String pswd = password.validatingPassword("nishaaaaa");
+        Assert.assertEquals("Invalid",pswd);
+
     }
 }

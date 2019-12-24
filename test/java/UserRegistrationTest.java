@@ -11,7 +11,7 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void ValidateUsername_IfMorethanTwo_ReturnValid() {
+    public void ValidateUsername_IfMinThreeLetters_ReturnValid() {
         UserRegistration userFirstName = new UserRegistration();
         String firstname = userFirstName.validatingUserName("Nish");
         Assert.assertEquals("Valid",firstname);
@@ -39,5 +39,41 @@ public class UserRegistrationTest {
         UserRegistration userFirstName_Invalid = new UserRegistration();
         String firstname = userFirstName_Invalid.validatingUserName("ni sha");
         Assert.assertEquals("Invalid",firstname);
+    }
+
+    @Test
+    public void ValidateUserLastName_IfFirstLetterCapital_ReturnValid() {
+        UserRegistration userLastName = new UserRegistration();
+        String lastname = userLastName.validatingUserLastName("Kshatriya");
+        Assert.assertEquals("Valid",lastname);
+    }
+
+    @Test
+    public void ValidateUserLastName_IfMinThreeLetters_ReturnValid() {
+        UserRegistration userLastName = new UserRegistration();
+        String lastname = userLastName.validatingUserLastName("Ksh");
+        Assert.assertEquals("Valid",lastname);
+    }
+
+    @Test
+    public void ValidateUserNameLastName_IfFirstLetterNotCaps_ReturnInvalid() {
+        UserRegistration userLastName = new UserRegistration();
+        String lastname = userLastName.validatingUserLastName("kshatriya");
+        Assert.assertEquals("Invalid",lastname);
+    }
+
+    @Test
+    public void ValidateUserLastName_IfLessThanThreeLetter_ReturnInvalid() {
+        UserRegistration userLastName = new UserRegistration();
+        String lastname = userLastName.validatingUserLastName("ks");
+        Assert.assertEquals("Invalid",lastname);
+    }
+
+    @Test
+    public void ValidateUserLastName_IfEncounteredSpecialSymbl_ReturnInvalid() {
+        UserRegistration userLastName = new UserRegistration();
+        String lastname = userLastName.validatingUserLastName("ksh@triya");
+        Assert.assertEquals("Invalid",lastname);
+
     }
 }

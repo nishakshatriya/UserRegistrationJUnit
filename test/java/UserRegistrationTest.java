@@ -40,7 +40,7 @@ public class UserRegistrationTest {
         String firstname = userFirstName_Invalid.validatingUserName("ni sha");
         Assert.assertEquals("Invalid",firstname);
     }
-
+//LAST_NAME_VALIDATION
     @Test
     public void ValidateUserLastName_IfFirstLetterCapital_ReturnValid() {
         UserRegistration userLastName = new UserRegistration();
@@ -74,6 +74,28 @@ public class UserRegistrationTest {
         UserRegistration userLastName = new UserRegistration();
         String lastname = userLastName.validatingUserLastName("ksh@triya");
         Assert.assertEquals("Invalid",lastname);
+
+    }
+//EMAIL_ID_VALIDATION
+    @Test
+    public void ValidateEmail_IfContainsAllMandatoryParts_ReturnValid() {
+        UserRegistration email_Id = new UserRegistration();
+        String id = email_Id.validatingEmailId("nisha.kshatriya@gmail.com");
+        Assert.assertEquals("Valid",id);
+    }
+
+    @Test
+    public void ValidateEmail_IfhasMandatoryAndOptionalPart_ReturnValid() {
+        UserRegistration email_Id = new UserRegistration();
+        String id = email_Id.validatingEmailId("nisha.kshatriya@gmail.com.in");
+        Assert.assertEquals("Valid",id);
+    }
+
+    @Test
+    public void ValidateEmail_IfContainNoMandatoryParts_ReturnInvalid() {
+        UserRegistration email_Id = new UserRegistration();
+        String id = email_Id.validatingEmailId("nisha.kshatriya@gmail.");
+        Assert.assertEquals("Invalid",id);
 
     }
 }

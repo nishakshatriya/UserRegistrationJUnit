@@ -14,4 +14,11 @@ public class UserRegistration {
         else
             return "Invalid";
     }
+
+    public String validatingEmailId(String id) {
+        if(id.matches("^[a-zA-Z0-9]{1,}[.]?[a-zA-Z0-9]{1,}[@][a-zA-Z0-9]{1,}([.][a-zA-Z]{2,4}){1,3}$"))
+            return "Valid";
+        else
+            return "Invalid";
+    }
 }

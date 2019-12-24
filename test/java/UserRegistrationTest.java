@@ -132,7 +132,7 @@ public class UserRegistrationTest {
     @Test
     public void ValidatePswd_IfPredefinedFormat_ReturnValid() {
         UserRegistration password = new UserRegistration();
-        String pswd = password.validatingPassword("nishAaaa2");
+        String pswd = password.validatingPassword("nishA@12");
         Assert.assertEquals("Valid",pswd);
     }
 // 8 CHARACTER PSWD
@@ -157,5 +157,13 @@ public class UserRegistrationTest {
         String pswd = password.validatingPassword("nishaAak");
         Assert.assertEquals("Invalid",pswd);
 
+    }
+// 1 SPECIAL SYMBOL
+
+    @Test
+    public void ValidatePswd_IfNoSpecialSymbol_ReturnInvalid() {
+        UserRegistration password = new UserRegistration();
+        String pswd = password.validatingPassword("nIshaa12");
+        Assert.assertEquals("Invalid",pswd);
     }
 }

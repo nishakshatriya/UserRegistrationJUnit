@@ -1,4 +1,5 @@
-package com.bridgelabz.UserRegistration;
+package com.brideglabz.UserRegistration;
+
 public class UserRegistration {
 
     public String validatingUserName(String firstname) {
@@ -16,7 +17,7 @@ public class UserRegistration {
     }
 
     public String validatingEmailId(String id) {
-        if(id.matches("^[a-zA-Z0-9]{1,}[.]?[a-zA-Z0-9]{1,}[@][a-zA-Z0-9]{1,}([.][a-zA-Z]{2,4}){1,3}$"))
+        if(id.matches("^[a-zA-Z0-9]{1,}[._+-]?[a-zA-Z0-9]{1,}[@][a-zA-Z0-9]{1,}([.][a-zA-Z]{2,4}){1,3}$"))
             return "Valid";
         else
             return "Invalid";
@@ -30,10 +31,10 @@ public class UserRegistration {
     }
 
     public String validatingPassword(String pswd) {
-    if(pswd.matches("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=.*[+@#$%^&*!.()-]).{8,}"))
-        return  "Valid";
-    else
-        return "Invalid";
+        if(pswd.matches("(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?=.*[+@#$%^&*!.()-]).{8,}"))
+            return  "Valid";
+        else
+            return "Invalid";
 
     }
 }
